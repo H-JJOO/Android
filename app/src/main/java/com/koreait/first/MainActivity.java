@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         if(v instanceof TextView) {//v에 담겨있는 객체주소값을 TextView 타입으로 저장 할 수 있으면 true 없으면 false
             TextView tv = (TextView)v;
             String val = (String)tv.getText();//Text 값 가져오기
-            int intVal = Integer.parseInt(val);//문자열인 Text 값을 int로 형변환
+            int intVal = Integer.parseInt(val);//문자열인 Text 값을 int 로 형변환
             intVal += 1;//1씩증가
-            String parseStrVal = String.valueOf(intVal);//int 형변환 된걸 다시 String으로 형변환
+            String parseStrVal = String.valueOf(intVal);//int 형변환 된걸 다시 String 으로 형변환
             tv.setText(parseStrVal);
         }
 

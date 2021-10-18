@@ -50,7 +50,28 @@
         </Button>
 
     </TableRow>
+<!--줄 추가-->
+    <TableRow>
+        <Button
+            android:id="@+id/menuBtn4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:onClick="moveToActivity"
+            android:text="글쓰기"
+            android:textSize="9dp">
+        </Button>
 
+        <Button
+            android:id="@+id/menuBtn5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:onClick="moveToActivity"
+            android:text="Person"
+            android:textSize="9dp">
+        </Button>
 
+    </TableRow>
 
 </TableLayout>

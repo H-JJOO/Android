@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.koreait.first.ch07.BookPersonActivity;
+
 public class MenuActivity extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
     }
-
+    //전화기능
     public void call(View v) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel: "));
         startActivity(intent);
@@ -37,6 +39,13 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.menuBtn3:
                 c = ConstraintActivity.class;
                 break;
+            case R.id.menuBtn4:
+                c = WriteActivity.class;
+                break;
+            case R.id.menuBtn5:
+                c = BookPersonActivity.class;
+                break;
+
         }
 
 //        if (id == R.id.menuBtn1) {
@@ -86,6 +95,7 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, c);
         startActivity(intent);
     }
+
 
 
 }
