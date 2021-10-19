@@ -54,9 +54,10 @@
     <TableRow>
         <Button
             android:id="@+id/menuBtn4"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
+            android:layout_weight="1"
             android:onClick="moveToActivity"
             android:text="글쓰기"
             android:textSize="9dp">
@@ -64,11 +65,34 @@
 
         <Button
             android:id="@+id/menuBtn5"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
+            android:layout_weight="1"
             android:onClick="moveToActivity"
             android:text="Person"
+            android:textSize="9dp">
+        </Button>
+
+        <Button
+            android:id="@+id/menuBtn6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:onClick="moveToActivity"
+            android:text="이미지"
+            android:textSize="9dp">
+        </Button>
+
+        <Button
+            android:id="@+id/menuBtn7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:onClick="moveToActivity"
+            android:text="PICSUM"
             android:textSize="9dp">
         </Button>
 

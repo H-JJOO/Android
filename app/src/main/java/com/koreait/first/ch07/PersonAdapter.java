@@ -1,5 +1,6 @@
 package com.koreait.first.ch07;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.koreait.first.R;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
     private List<Person> items = new LinkedList<>();
 
     public void addItem(Person item) { items.add(item); }
+    //그릇에 알맹이를 담는 메소드
 
     @NonNull
     @Override
@@ -27,6 +30,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         //이 부분만 바꾸면 될거임
         View itemView = inflater.inflate(R.layout.person_item, parent, false);
+        //객체화 후 리턴
         return new MyViewHolder(itemView);
     }
 
@@ -46,10 +50,23 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
     static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
         TextView tvAge;
-
+        //person_item.xml 의 LinearLayout
         public MyViewHolder(View v) {
             super(v);
+            v.setOnClickListener(new View.OnClickListener() {//객체 주소값
+                @Override
+                public void onClick(View v) {
+                    //클로저(closure), 죽어야하는 지역변수가 안죽고 살아있는 현상
 
+
+
+                    String name = tvName.getText().toString();
+                    String age = tvAge.getText().toString();
+//                    Log.i("myLog", name + ", " + age);
+
+                    Snackbar.make(v, name + ", " + age, Snackbar.LENGTH_SHORT).show();
+                }
+            });
             tvName = v.findViewById(R.id.tvName);
             tvAge = v.findViewById(R.id.tvAge);
         }
@@ -60,6 +77,11 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
 //            tvAge.setText(R.string.tv_01); //이렇게 strings.xml 에서 관리하고있는 문자열을 입력할 때 정수 값을 사용한다.
 
             tvAge.setText(item.getAge() + "살");
+
+//            int aa = 100;
+//            //R에서 관리하고 있는 정수값
+//            int a = R.string.app_name;
+//            tvAge.setText(aa);
         }
     }
 }

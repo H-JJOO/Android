@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.koreait.first.ch07.BookPersonActivity;
+import com.koreait.first.picsum.PicsumActivity;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -45,6 +46,11 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.menuBtn5:
                 c = BookPersonActivity.class;
                 break;
+            case R.id.menuBtn6:
+                c = ImageViewActivity.class;
+                break;
+            case R.id.menuBtn7:
+                c = PicsumActivity.class;
 
         }
 
