@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.koreait.first.ch07.BookPersonActivity;
 import com.koreait.first.ch10.DailyBoxofficeActivity;
+import com.koreait.first.ch10.WeeklyBoxofficeActivity;
 import com.koreait.first.picsum.PicsumActivity;
 
 public class MenuActivity extends AppCompatActivity {
@@ -19,6 +21,10 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+//        int result = Utils.parseStringToInt("100000");
+//        Log.i("myLog", "1:"+ result);
+
     }
     //전화기능
     public void call(View v) {
@@ -56,6 +62,9 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.menuBtn8:
                 c = DailyBoxofficeActivity.class;
                 break;
+            case R.id.menuBtn9:
+                c = WeeklyBoxofficeActivity.class;
+                break;
 
         }
 
@@ -66,6 +75,11 @@ public class MenuActivity extends AppCompatActivity {
 //        } else if (id == R.id.menuBtn3) {
 //            c = ConstraintActivity.class;
 //        }
+
+        if (c == null) {
+            Snackbar.make(v, "준비중입니다.", Snackbar.LENGTH_SHORT).show();
+            return;
+        }
 
         Intent intent = new Intent(this, c);
         startActivity(intent);

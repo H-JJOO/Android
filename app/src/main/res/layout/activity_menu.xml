@@ -106,7 +106,29 @@
             android:layout_margin="3dp"
             android:layout_weight="1"
             android:onClick="moveToActivity"
-            android:text="박스오피스"
+            android:text="일일영화순위"
+            android:textSize="9dp">
+        </Button>
+
+        <Button
+            android:id="@+id/menuBtn9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:onClick="moveToActivity"
+            android:text="주간영화순위"
+            android:textSize="9dp">
+        </Button>
+
+        <Button
+            android:id="@+id/menuBtn10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:onClick="moveToActivity"
+            android:text="월간영화순위"
             android:textSize="9dp">
         </Button>
 

@@ -1,5 +1,6 @@
 package com.koreait.first;
 
+import android.util.Log;
 import android.widget.Toast;
 
 public class Utils {
@@ -18,7 +19,27 @@ public class Utils {
             //에러가 터지든 안터지든 !무조건! 실행되었으면 하는 것들을 작성.
 
         }
-
         return intVal;
     }
+
+
+
+    public static int parseStringToInt(String val, int defVal) {
+        try {
+            return  Integer.parseInt(val);
+        } catch (Exception e) {
+            return defVal;
+        }
+    }
+
+    public static String getNumberComma(int val) {
+        return String.format("%,d", val);
+    }
+
+    public static String getNumberComma(String val) {
+        int intVal = parseStringToInt(val);
+        return getNumberComma(intVal);
+
+    }
 }
+

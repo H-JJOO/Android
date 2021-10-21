@@ -25,17 +25,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PicsumActivity extends AppCompatActivity {
 
-    private RecyclerView rvList;//연결
     private PicsumAdapter adapter;//어뎁터 전역변수 선언
+
+    private RecyclerView rvList;//연결
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//Android 플랫폼 상 약속 (java 문법상은 없어도된다.)
         setContentView(R.layout.activity_picsum);
 
-        rvList = findViewById(R.id.rvList);//연결
         adapter = new PicsumAdapter();//어뎁터 객체화
 
+        rvList = findViewById(R.id.rvList);//연결
         rvList.setAdapter(adapter);//rvList에 어뎁터 세팅
 
         network();//통신
