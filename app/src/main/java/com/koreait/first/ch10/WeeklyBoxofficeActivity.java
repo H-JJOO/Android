@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.DatePicker;
 
 import com.koreait.first.R;
+import com.koreait.first.ch10.boxofficemodel.BoxOfficeResultBodyVO;
+import com.koreait.first.ch10.boxofficemodel.BoxOfficeResultVO;
+import com.koreait.first.ch10.boxofficemodel.BoxOfficeVO;
 
 import java.util.List;
 
@@ -20,26 +23,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WeeklyBoxofficeActivity extends AppCompatActivity {
 
-    private DailyBoxofficeAdapter adapter;
+    private KobisBoxofficeAdapter adapter;
 
-    private DatePicker dpTargetDt;
+    private DatePicker dpTargetDt;//세트
     private RecyclerView rvList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weekly_boxoffice);
+        setContentView(R.layout.activity_daily_boxoffice);
 
-        adapter = new DailyBoxofficeAdapter();
+        adapter = new KobisBoxofficeAdapter();
 
-        dpTargetDt = findViewById(R.id.dpTargetDt);
+        dpTargetDt = findViewById(R.id.dpTargetDt);//세트
         rvList = findViewById(R.id.rvList);
         rvList.setAdapter(adapter);
     }
 
-    public void network(String targetDt) {
-        Retrofit rf = new Retrofit.Builder().baseUrl("https://www.kobis.or.kr/kobisopenapi/webservice/rest/")
-                .addConverterFactory(GsonConverterFactory.create())
+    private void network(String targetDt) {
+        Retrofit rf = new Retrofit.Builder()//객체화
+                .baseUrl("https://www.kobis.or.kr/kobisopenapi/webservice/rest/")//사이트의 기본주소(와 통신하겠다.)
+                .addConverterFactory(GsonConverterFactory.create())//json 형태의 문자열을 자바 문자열로 변환
                 .build();
 
         KobisService service = rf.create(KobisService.class);
@@ -47,6 +51,7 @@ public class WeeklyBoxofficeActivity extends AppCompatActivity {
         final String KEY = "de390418f9162804bdcd0fe1cffa546e";
         Call<BoxOfficeResultBodyVO> call = service.searchWeeklyBoxOfficeList(KEY, targetDt);
 
+        //비동기처리
         call.enqueue(new Callback<BoxOfficeResultBodyVO>() {
             @Override
             public void onResponse(Call<BoxOfficeResultBodyVO> call, Response<BoxOfficeResultBodyVO> res) {
@@ -54,14 +59,16 @@ public class WeeklyBoxofficeActivity extends AppCompatActivity {
                     BoxOfficeResultBodyVO vo = res.body();
 
                     BoxOfficeResultVO resultVO = vo.getBoxOfficeResult();
-                    List<DailyBoxOfficeVO> list = resultVO.getDailyBoxOfficeList();
+                    List<BoxOfficeVO> list = resultVO.getWeeklyBoxOfficeList();
+
+//                    List<DailyBoxOfficeVO> list2 = vo.getBoxOfficeResult().getDailyBoxOfficeList();
 
                     Log.i("myLog", list.size() + "개");
 
                     adapter.setList(list);
-                    adapter.notifyDataSetChanged();
-                }
+                    adapter.notifyDataSetChanged();//바꿨으니까 알려줘!
 
+                }
             }
 
             @Override
@@ -71,15 +78,27 @@ public class WeeklyBoxofficeActivity extends AppCompatActivity {
         });
     }
 
-
     public void clkSearch(View v) {
         int day = dpTargetDt.getDayOfMonth();
-        int mon = dpTargetDt.getMonth();
+        int mon = dpTargetDt.getMonth() + 1;
         int year = dpTargetDt.getYear();
 
         String date = String.format("%s%02d%02d", year, mon, day);
         network(date);
 
         Log.i("myLog", date);
+
+        /*
+        //Calendar 객체
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+        //날짜 설정하기
+        Calendar c = Calendar.getInstance();//싱글톤 객체가 넘어옴, 무조건 하나만 만들겠다.
+        c.set(year, mon, day);
+
+        String date = sdf.format(c.getTime());
+        Log.i("myLog", date);
+         */
     }
+
 }

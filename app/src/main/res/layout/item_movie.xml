@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvMovieNm"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvRepNationNm"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#FFB0B0"
+            android:layout_weight="1">
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvMovieNmEn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#D7FFA9"
+            android:layout_weight="1">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvRepGenreNm"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </TextView>
+    </LinearLayout>
+
+
+</LinearLayout>
