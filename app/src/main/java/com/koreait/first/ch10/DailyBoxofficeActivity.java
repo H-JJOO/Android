@@ -29,6 +29,7 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
     private RecyclerView rvList;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

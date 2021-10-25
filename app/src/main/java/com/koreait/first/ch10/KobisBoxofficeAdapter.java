@@ -19,7 +19,7 @@ public class KobisBoxofficeAdapter extends RecyclerView.Adapter<KobisBoxofficeAd
 
     public void setList(List<BoxOfficeVO> list) {
         this.list = list;
-    }
+    }//null 일 가능성 있음
 
     @NonNull
     @Override

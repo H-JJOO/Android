@@ -1,12 +1,13 @@
 package com.koreait.first.ch10;
 
 import com.koreait.first.ch10.boxofficemodel.BoxOfficeResultBodyVO;
+import com.koreait.first.ch10.searchmoviemodel.MovieInfoResultBodyVO;
 import com.koreait.first.ch10.searchmoviemodel.MovieListResultBodyVO;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-
+//선언부
 public interface KobisService {
 
     //일별 박스오피스
@@ -23,5 +24,15 @@ public interface KobisService {
     //영화 목록
     @GET("movie/searchMovieList.json")
     Call<MovieListResultBodyVO> searchMovieList
-        (@Query("key")String key);
+        (@Query("key")String key,
+         @Query("itemPerPage") String itemPerPage,
+         @Query("curPage") int curPage);
+
+    //영화 상세정보(디테일)
+    @GET("movie/searchMovieInfo.json")
+    Call<MovieInfoResultBodyVO> searchMovieInfo
+        (@Query("key")String key,
+         @Query("movieCd")String movieCd);
+
+
 }

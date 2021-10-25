@@ -1,6 +1,6 @@
 package com.koreait.first.ch10.searchmoviemodel;
 
-public class MovieVo {
+public class MovieVO {
     private String movieCd;
     private String movieNm;
     private String movieNmEn;
