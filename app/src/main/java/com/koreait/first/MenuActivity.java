@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 import com.koreait.first.ch07.BookPersonActivity;
 import com.koreait.first.ch10.DailyBoxofficeActivity;
+import com.koreait.first.ch10.MovieDetailActivity;
 import com.koreait.first.ch10.MovieListActivity;
 import com.koreait.first.ch10.WeeklyBoxofficeActivity;
 import com.koreait.first.picsum.PicsumActivity;
@@ -69,7 +70,6 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.menuBtn10:
                 c = MovieListActivity.class;
                 break;
-
         }
 
 //        if (id == R.id.menuBtn1) {
